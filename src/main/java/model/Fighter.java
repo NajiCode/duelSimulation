@@ -95,13 +95,13 @@ public class Fighter {
             }
         }
     }
-
-    public boolean hasArmor() {
-        for(Equipment equipment : equipments){
-            if(equipment instanceof Armor){
-                return true;
+    private void putPoisonOnWeapen(){
+        for(Equipment e : equipments){
+            if(e instanceof Offensive){
+                Offensive offensive = (Offensive) e;
+                ExtratEquipment poison = new Poison();
+                offensive.putExtraEffect(poison);
             }
         }
-        return false;
     }
 }

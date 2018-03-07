@@ -81,11 +81,11 @@ public class TournamentTest {
      * poison add 20 damages on two first blows
      * a veteran Highlander goes Berserk once his hit points are under 30% of his initial total
      * once Berserk, he doubles his damages
-     *//*
+     */
     @Test
     public void ViciousSwordsmanVsVeteranHighlander() {
 
-        Swordsman swordsman = new Swordsman("Vicious");
+        Swordsman swordsman = new Swordsman("Vicious")
                 .equip("axe")
                 .equip("buckler")
                 .equip("armor");
@@ -98,5 +98,4 @@ public class TournamentTest {
         assertThat(highlander.hitPoints()).isEqualTo(0);
 
     }
-*/
 }
