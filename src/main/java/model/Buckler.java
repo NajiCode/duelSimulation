@@ -27,4 +27,9 @@ public class Buckler extends Defensive {
         }
         return false;
     }
+
+    @Override
+    public int pointsToReduceOnAttack() {
+        return 0;
+    }
 }

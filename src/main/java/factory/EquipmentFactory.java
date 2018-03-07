@@ -1,9 +1,6 @@
 package factory;
 
-import model.Buckler;
-import model.Equipment;
-import model.OneHandAxe;
-import model.OneHandSword;
+import model.*;
 
 public class EquipmentFactory {
 
@@ -16,7 +13,13 @@ public class EquipmentFactory {
         }
         else if("buckler".equals(type)){
             return new Buckler();
+        }else if("greatSword".equals(type)){
+            return new GreatSword();
         }
+        else if("armor".equals(type)){
+            return new Armor();
+        }
+
         return null;
     }
 }

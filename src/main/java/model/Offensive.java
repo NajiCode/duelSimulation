@@ -1,9 +1,19 @@
 package model;
 
-public class Offensive implements Equipment {
+public abstract class Offensive implements Equipment {
     protected int damage;
+    protected int nbrOfAttacks;
 
-    public void applyOn(Fighter fighter, Offensive offensive) {
-        fighter.decreaseHitPoints(damage,offensive);
+    public void applyOn(Fighter fighter) {
+        if (canBeUsed()) {
+            fighter.decreaseHitPoints(damage,this);
+        }
+    }
+
+    public abstract boolean canBeUsed();
+
+    public void changeDamage(Defensive defensive){
+        int points = defensive.pointsToReduceOnAttack();
+        damage-=points;
     }
 }

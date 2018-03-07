@@ -1,4 +1,5 @@
 
+import model.Highlander;
 import model.Swordsman;
 import model.Viking;
 import org.junit.Test;
@@ -59,7 +60,7 @@ public class TournamentTest {
      * an Highlander as 150 hit points and fight with a Great Sword
      * a Great Sword is a two handed sword deliver 12 damages, but can attack only 2 every 3
      * an armor : reduce all received damages by 3 & reduce delivered damages by one
-     *//*
+     */
     @Test
     public void ArmoredSwordsmanVsViking() {
         Highlander highlander = new Highlander();
@@ -75,7 +76,7 @@ public class TournamentTest {
 
     }
 
-    *//**
+    /**
      * a vicious Swordsman is a Swordsman that put poison on his weapon.
      * poison add 20 damages on two first blows
      * a veteran Highlander goes Berserk once his hit points are under 30% of his initial total

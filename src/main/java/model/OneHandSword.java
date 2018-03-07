@@ -7,4 +7,9 @@ public class OneHandSword extends Offensive {
     public OneHandSword() {
         this.damage = DAMAGE;
     }
+
+    @Override
+    public boolean canBeUsed() {
+        return true;
+    }
 }
