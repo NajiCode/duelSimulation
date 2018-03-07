@@ -6,6 +6,11 @@ public class Swordsman extends Fighter {
 
     public Swordsman() {
         super(HIT_POINTS);
-        this.offensive  = equipmentFactory.create("1handSword");
+        addEquipment("1handSword");
+    }
+
+    public Swordsman equip(String type) {
+        addEquipment(type);
+        return this;
     }
 }

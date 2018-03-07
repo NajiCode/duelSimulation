@@ -1,12 +1,19 @@
 package model;
 
+import factory.EquipmentFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Fighter {
     protected Integer hitPoints;
-    protected Equipment offensive;
+    protected List<Equipment> equipments;
 
     protected EquipmentFactory equipmentFactory;
+
     protected Fighter(int hitPoints) {
         this.hitPoints = hitPoints;
+        this.equipments = new ArrayList<>();
         this.equipmentFactory = new EquipmentFactory();
     }
 
@@ -26,7 +33,14 @@ public class Fighter {
     }
 
     private void blow(Fighter fighter) {
-        offensive.applyOn(fighter);
+        for (Equipment equipment : equipments){
+            if (equipment instanceof Offensive) {
+
+                Offensive offensiveEquipment = (Offensive)equipment;
+                offensiveEquipment.applyOn(fighter, offensiveEquipment);
+
+            }
+        }
     }
 
     private boolean someOneIsDead(Fighter fighter) {
@@ -36,14 +50,36 @@ public class Fighter {
         return false;
     }
 
-    public void decreaseHitPoints(int damage) {
+    public void decreaseHitPoints(int damage,Offensive offensive) {
+        List<Equipment> equipmentsTobeRemoved = new ArrayList<>();
+        for(Equipment equipment : equipments){
+            if(equipment instanceof Defensive){
+                Defensive defensiveEquipment = (Defensive)equipment;
+                damage = defensiveEquipment.reduceDamage(damage);
+                if(defensiveEquipment.isDestroyedBy(offensive)){
+                    equipmentsTobeRemoved.add(equipment);
+                }
+            }
+        }
+        removeEquipments(equipmentsTobeRemoved);
         hitPoints-=damage;
         if(hitPoints<0){
             hitPoints = 0;
         }
     }
 
+    private void removeEquipments(List<Equipment> equipmentsTobeRemoved) {
+        for (Equipment equipment : equipmentsTobeRemoved){
+            equipments.remove(equipment);
+        }
+    }
+
     public Integer hitPoints() {
         return  hitPoints;
+    }
+
+    protected void addEquipment(String type){
+        Equipment equipment = equipmentFactory.create(type);
+        this.equipments.add(equipment);
     }
 }
