@@ -1,4 +1,4 @@
-package model;
+package model.equipments.offensive;
 
 public class GreatSword extends Offensive {
 

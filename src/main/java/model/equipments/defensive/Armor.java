@@ -1,4 +1,6 @@
-package model;
+package model.equipments.defensive;
+
+import model.equipments.offensive.Offensive;
 
 public class Armor extends Defensive {
 

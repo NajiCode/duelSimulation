@@ -1,4 +1,4 @@
-package model;
+package model.fighters;
 
 public class Swordsman extends Fighter {
 
@@ -9,8 +9,13 @@ public class Swordsman extends Fighter {
         addEquipment("1handSword");
     }
 
+    public Swordsman(String type) {
+        super(HIT_POINTS,type);
+        addEquipment("1handSword");
+    }
+
     public Swordsman equip(String type) {
-        addEquipment(type);
+        state.addEquipment(type,this);
         return this;
     }
 }

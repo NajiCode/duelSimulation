@@ -1,7 +1,7 @@
 
-import model.Highlander;
-import model.Swordsman;
-import model.Viking;
+import model.fighters.Highlander;
+import model.fighters.Swordsman;
+import model.fighters.Viking;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

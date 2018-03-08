@@ -1,6 +1,11 @@
 package factory;
 
-import model.*;
+import model.equipments.Equipment;
+import model.equipments.defensive.Armor;
+import model.equipments.defensive.Buckler;
+import model.equipments.offensive.GreatSword;
+import model.equipments.offensive.OneHandAxe;
+import model.equipments.offensive.OneHandSword;
 
 public class EquipmentFactory {
 

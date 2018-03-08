@@ -1,4 +1,7 @@
-package model;
+package model.equipments.defensive;
+
+import model.equipments.offensive.Offensive;
+import model.equipments.offensive.OneHandAxe;
 
 public class Buckler extends Defensive {
     private boolean isActive;

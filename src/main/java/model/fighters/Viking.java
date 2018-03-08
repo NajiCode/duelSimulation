@@ -1,4 +1,4 @@
-package model;
+package model.fighters;
 
 public class Viking extends Fighter {
 
@@ -7,6 +7,11 @@ public class Viking extends Fighter {
     public Viking() {
         super(HIT_POINTS);
         addEquipment("axe");
+    }
+
+    public Viking(String type) {
+        super(HIT_POINTS,type);
+        addEquipment("1handSword");
     }
 
     public Viking equip(String type) {
